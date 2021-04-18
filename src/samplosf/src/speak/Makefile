@@ -45,8 +45,8 @@ G_DT_LANG_LIB=-ltts_$(LANG_CODE)
 G_DT_DEMO_LIB=-ltts_demo_$(LANG_CODE)
 GLIBS=-ldl -lpthread
 
-GTK_CFLAGS= `gtk-config --cflags`
-GTK_LFLAGS= `gtk-config --libs` -Llib
+GTK_CFLAGS= `pkg-config --cflags --libs gtk+-2.0`
+GTK_LFLAGS= `pkg-config --cflags --libs gtk+-2.0` -Llib
 
 GCFLAGS = $(DEBUG_FLAGS) $(GTK_CFLAGS) $(OPTO_FLAGS) $(WARN_FLAGS) $(INCLUDES) $(GDEFINES)
 GLINK_FLAGS=$(GTK_LFLAGS)

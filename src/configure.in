@@ -521,14 +521,14 @@ AC_SUBST(WINDICT_ALL)dnl
 GTK_DEFINES=""
 case "$target" in
 	arm-*-linux-*) GTK_DEFINES="" ;;
-	*-*-linux-*) GTK_DEFINES="\`gtk-config --cflags\`" ;;
+	*-*-linux-*) GTK_DEFINES="\`pkg-config --cflags --libs gtk+-2.0\`" ;;
 esac
 AC_SUBST(GTK_DEFINES)dnl
 
 GTK_LIBS=""
 case "$target" in
 	arm-*-linux-*) GTK_LIBS="" ;;
-	*-*-linux-*) GTK_LIBS="\`gtk-config --libs\`" ;;
+	*-*-linux-*) GTK_LIBS="\`pkg-config --cflags --libs gtk+-2.0\`" ;;
 esac
 AC_SUBST(GTK_LIBS)dnl
 

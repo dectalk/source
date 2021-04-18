@@ -27,8 +27,8 @@ MMELIBS= -lpthread
 MME_DIR=.
 LINKFLAGS= -ldl 
 WINDICT_ALL=$(OUTPUT_DIR)/windic
-GTK_LIBS = `gtk-config --libs`
-GTK_DEFINES = `gtk-config --cflags`
+GTK_LIBS = `pkg-config --cflags --libs gtk+-2.0`
+GTK_DEFINES = `pkg-config --cflags --libs gtk+-2.0`
 #### End of system configuration section. #### 
 
 RM=rm -f
