@@ -1,7 +1,7 @@
 /*
 ** COPYRIGHT NOTICE 
-** Copyright © 2000, 2001 Force Computers Inc. A Solectron company. All rights reserved.    
-** Copyright © SMART Modular Technologies 1999. All rights reserved.    
+** Copyright ï¿½ 2000, 2001 Force Computers Inc. A Solectron company. All rights reserved.    
+** Copyright ï¿½ SMART Modular Technologies 1999. All rights reserved.    
 ** Copyright (c) Digital Equipment Corporation, 1993
 ** All Rights reserved. Unpublished rights reserved under the 
 ** copyright laws of the United States. Copyright is claimed in 
@@ -1641,14 +1641,17 @@ DTKmmioDescend(
 	return MMIOERR_CANNOTSEEK;
 
     /* figure out what chunk id and form/list type to search for */
-    if (uFlags & MMIO_FINDCHUNK)
-	ckidFind = (FOURCC)lpck->ckid, (FOURCC)fccTypeFind = NULL;
-    else if (uFlags & MMIO_FINDRIFF)
-	ckidFind = (FOURCC)FOURCC_RIFF, fccTypeFind = lpck->fccType;
-    else if (uFlags & MMIO_FINDLIST)
-	ckidFind = (FOURCC)FOURCC_LIST, fccTypeFind = lpck->fccType;
-    else
-	ckidFind = (FOURCC)fccTypeFind = NULL;
+    if (uFlags & MMIO_FINDCHUNK) {
+			// REMINDER - See if the cast was needed
+			ckidFind = (FOURCC)lpck->ckid, fccTypeFind = NULL;
+		} else if (uFlags & MMIO_FINDRIFF) {
+			ckidFind = (FOURCC)FOURCC_RIFF, fccTypeFind = lpck->fccType;
+		} else if (uFlags & MMIO_FINDLIST) {
+			ckidFind = (FOURCC)FOURCC_LIST, fccTypeFind = lpck->fccType;
+		} else {
+			// REMINDER - See if the cast was needed
+			ckidFind = fccTypeFind = NULL;
+		}
 	
     lpckRet.dwFlags = 0L;
 
