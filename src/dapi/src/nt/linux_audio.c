@@ -5,9 +5,9 @@
 /************************************************************
  *
  *                           Copyright (c)
- *    © Digital Equipment Corporation 1996, 1997, 1998. All rights reserved.
- *    © SMART Modular Technologies 1999. All rights reserved. 
- *	  Copyright © 2000 Force Computers, Inc., a Solectron Company. All rights reserved.   
+ *    ï¿½ Digital Equipment Corporation 1996, 1997, 1998. All rights reserved.
+ *    ï¿½ SMART Modular Technologies 1999. All rights reserved. 
+ *	  Copyright ï¿½ 2000 Force Computers, Inc., a Solectron Company. All rights reserved.   
  *
  *    Restricted Rights: Use, duplication, or disclosure by the U.S.
  *    Government is subject to restrictions as set forth in subparagraph
@@ -990,7 +990,7 @@ UINT16 waveOutGetPosition(HWAVEOUT hWaveOut,LPMMTIME lpTime,
 }
 
 #define WAVEOUT_SHORTCUT_1(xx,XX,atype) \
-        UINT16 waveOut##xx##(HWAVEOUT hWaveOut, atype x)       \
+        UINT16 waveOut##xx(HWAVEOUT hWaveOut, atype x)       \
 {									\
 	LPWAVEOPENDESC	lpDesc;                                         \
 	lpDesc = (LPWAVEOPENDESC) USER_HEAP_LIN_ADDR(hWaveOut);		\
