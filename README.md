@@ -5,6 +5,15 @@ Welcome to DECtalk... or a copy of it, found from a webserver off [grossgang.com
 This repository aims to do something with the code.
 Whatever it is, I don't know.
 
+## Building
+
+The DECtalk source code builds on some very old software.
+
+
+```sh
+docker -v src:/src
+```
+
 ## Branches
 
 - For the built version of DECtalk on an older version of Linux and GCC (x86), see the [`linux-compile`](https://github.com/dectalk/source/tree/linux-compile) branch.
