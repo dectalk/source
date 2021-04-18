@@ -12,6 +12,9 @@ I'm trying, but there's too many errors.
 Hop onto Discord or send a pull request!
 
 ```sh
+# Stuff you need!
+sudo apt install libgtk2.0-dev
+
 # Autoreconf... dunno
 autoreconf
 
@@ -37,3 +40,11 @@ You can help discuss the project on:
 - Discord (https://discordapp.com/invite/wHgdmf4)
     - Make sure very _very_ important questions are on GitHub issues instead,
       so they're not lost to time like Yahoo Answers.
+
+## Legacy
+
+This code is probably owned by some holding company somewhere now.
+If you really want to give thanks, try one of these people:
+
+`/src/samples/speak/TEAM03.BMP`  
+![The DECtalk Team](.github/TEAM03.png)
