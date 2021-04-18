@@ -1,10 +1,10 @@
 /* 
  ***********************************************************************
  *
- *                           Copyright ©
- *    Copyright © 2002 Fonix Corporation. All rights reserved. 
- *    Copyright © 2000-2001 Force Computers, Inc., a Solectron company. All rights reserved.
- *    © Digital Equipment Corporation 1996, 1997. All rights reserved.
+ *                           Copyright ï¿½
+ *    Copyright ï¿½ 2002 Fonix Corporation. All rights reserved. 
+ *    Copyright ï¿½ 2000-2001 Force Computers, Inc., a Solectron company. All rights reserved.
+ *    ï¿½ Digital Equipment Corporation 1996, 1997. All rights reserved.
  *
  *    Restricted Rights: Use, duplication, or disclosure by the U.S.
  *    Government is subject to restrictions as set forth in subparagraph
@@ -1024,11 +1024,11 @@ void phsettar ( LPTTS_HANDLE_T phTTS)
 			sp_forw_smooth_rules (phTTS, pDph_t->shrif, pholas,
 						   fealas, feacur, struclas, struccur,feanex);
 		}
-				else if(tmp == PFIT<<PSFONT)
-		{
-			it_forw_smooth_rules (phTTS, pDph_t->shrif, pholas,
-						   fealas, feacur, struclas, struccur,feanex);
-		}
+		// 		else if(tmp == PFIT<<PSFONT)
+		// {
+		// 	it_forw_smooth_rules (phTTS, pDph_t->shrif, pholas,
+		// 				   fealas, feacur, struclas, struccur,feanex);
+		// }
 		else if(tmp == PFFR<<PSFONT)
 		{
 			fr_forw_smooth_rules (phTTS, pDph_t->shrif, pholas,
@@ -1140,11 +1140,11 @@ void phsettar ( LPTTS_HANDLE_T phTTS)
 			sp_back_smooth_rules (phTTS, pDph_t->shrib, feacur, 
 				feanex, strucnex);
 		}
-		else if(tmp == PFIT<<PSFONT)
-		{
-			it_back_smooth_rules (phTTS, pDph_t->shrib, feacur, 
-				feanex, strucnex);
-		}
+		// else if(tmp == PFIT<<PSFONT)
+		// {
+		// 	it_back_smooth_rules (phTTS, pDph_t->shrib, feacur, 
+		// 		feanex, strucnex);
+		// }
 		else if(tmp == PFFR<<PSFONT)
 		{
 			fr_back_smooth_rules (phTTS, pDph_t->shrib, feacur, 
@@ -1244,11 +1244,11 @@ void phsettar ( LPTTS_HANDLE_T phTTS)
 			sp_special_rules (phTTS, fealas, feacur, feanex, struclm2,
 				struccur, pholas, struclas);
 		}
-		else if(tmp == PFIT<<PSFONT)
-		{
-			it_special_rules (phTTS, fealas, feacur, feanex, struclm2,
-				struccur, pholas, struclas);
-		}
+		// else if(tmp == PFIT<<PSFONT)
+		// {
+		// 	it_special_rules (phTTS, fealas, feacur, feanex, struclm2,
+		// 		struccur, pholas, struclas);
+		// }
 		else if(tmp == PFFR<<PSFONT)
 		{
 			fr_special_rules (phTTS, fealas, feacur, feanex, struclm2,

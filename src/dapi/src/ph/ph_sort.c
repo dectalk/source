@@ -1,10 +1,10 @@
 /* 
  ***********************************************************************
  *
- *                           Copyright ©
- *	  Copyright © 2002 Fonix Corporation. All rights reserved.
- *	  Copyright © 2000-2001 Force Computers, Inc., a Solectron Company. All rights reserved.
- *    © Digital Equipment Corporation 1996, 1997. All rights reserved.
+ *                           Copyright ï¿½
+ *	  Copyright ï¿½ 2002 Fonix Corporation. All rights reserved.
+ *	  Copyright ï¿½ 2000-2001 Force Computers, Inc., a Solectron Company. All rights reserved.
+ *    ï¿½ Digital Equipment Corporation 1996, 1997. All rights reserved.
  *
  *    Restricted Rights: Use, duplication, or disclosure by the U.S.
  *    Government is subject to restrictions as set forth in subparagraph
@@ -631,7 +631,7 @@ if(pKsd_t->lang_curr == LANG_german)
 			insertphone (phTTS, (n+1), GRP_S);
 		}
 
-if(pKsd_t->lang_curr == LANG_spanish || LANG_ITALIAN)
+if(pKsd_t->lang_curr == LANG_spanish)
 {
 		/* kludge we need to have a word boundary at the begiining to make things
 		coding more straight forward n=0 is becuase of no inital wbound.*/
