@@ -1,5 +1,4 @@
-# Generated automatically from Makefile.sub.in by configure.
-# Makefile.sub for Dectalk software for i686-pc-linux-gnu
+# Makefile.sub for Dectalk software for x86_64-unknown-linux-gnu
 #
 # 001 ETT 10/22/1998 moved to autoconf system.
 # 002 ETT 12/07/1998 fixed typo.
@@ -8,7 +7,7 @@
 #
 #### Start of system configuration section. ####  
 
-OS_VERSION=2.0.34
+OS_VERSION=4.19.104-microsoft-standard
 
 #### End of system configuration section. ####
 

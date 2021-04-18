@@ -1,4 +1,4 @@
-# Makefile for dapi/src/osf/ for Dectalk software for x86_64-unknown-linux-gnu 
+# Makefile for dapi/src/nt/ for Dectalk software for x86_64-unknown-linux-gnu 
 #
 # 001 ETT 10/22/1998 moved to autoconf system. 
 #
@@ -17,8 +17,11 @@ OPTO_FLAGS= -O2
 WARN_FLAGS= -Wall
 # what do we define?
 DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE) -DACCESS32 -DTYPING_MODE
+# should we build linux_audio.o or not?
+LINUX_AUDIO=$(OUTPUT_DIR)/linux_audio.o
 # include mme stuff?
 MME_DIR=.
+MME_COMPILE_FLAGS=
 
 #### End of system configuration section. #### 
 
@@ -41,22 +44,32 @@ INCLUDES= -I$(INCLUDE_DIR) -I$(API_DIR) -I$(CMD_DIR) -I$(DIC_DIR) -I$(KERNEL_DIR
 	  -I$(LTS_DIR) -I$(NT_DIR) -I$(OSF_DIR) -I$(PH_DIR) -I$(DECTALKF_H)\
           -I$(PROTOS_DIR) -I$(VTM_DIR) -I$(MME_DIR) -I$(STD_INCLUDE) 
 
-CFLAGS= $(DEBUG_FLAGS) $(OPTO_FLAGS) $(WARN_FLAGS) $(INCLUDES) $(DEFINES)
+CFLAGS= $(DEBUG_FLAGS) $(OPTO_FLAGS) $(WARN_FLAGS) $(INCLUDES) $(DEFINES) $(MME_COMPILE_FLAGS)
 
-OSF_SRC= playstub.c loadable.c dtmmio.c 
+NT_SRC= playaud.c mmalloc.c opthread.c spc.c pipe.c linux_audio.c
 
-OSF_OBJ= $(OUTPUT_DIR)/playstub.o $(OUTPUT_DIR)/dtmmio.o $(OUTPUT_DIR)/loadable.o
+NT_OBJ=	$(OUTPUT_DIR)/playaud.o $(OUTPUT_DIR)/opthread.o $(OUTPUT_DIR)/spc.o \
+	$(OUTPUT_DIR)/pipe.o $(OUTPUT_DIR)/mmalloc.o $(LINUX_AUDIO)
 
-all:: $(OSF_OBJ)
+all:: $(NT_OBJ)
 
-$(OUTPUT_DIR)/playstub.o : playstub.c
-	$(CC) -c -DDEC $(CFLAGS) -o $@ $? 
-
-$(OUTPUT_DIR)/dtmmio.o:dtmmio.c
+$(OUTPUT_DIR)/playaud.o:playaud.c
 	$(CC) -c $(CFLAGS) -o $@ $?
 
-$(OUTPUT_DIR)/loadable.o : loadable.c
-	$(CC) -c -DDEC $(CFLAGS) -o $@ $?
+$(OUTPUT_DIR)/opthread.o:opthread.c
+	$(CC) -c $(CFLAGS) -o $@ $?
+ 
+$(OUTPUT_DIR)/spc.o:spc.c 
+	$(CC) -c $(CFLAGS) -o $@ $?
+
+$(OUTPUT_DIR)/pipe.o:pipe.c
+	$(CC) -c $(CFLAGS) -o $@ $?
+
+$(OUTPUT_DIR)/mmalloc.o:mmalloc.c
+	$(CC) -c $(CFLAGS) -o $@ $?
+
+$(OUTPUT_DIR)/linux_audio.o:linux_audio.c
+	$(CC) -c $(CFLAGS) -o $@ $?
 
 clean::
 	rm $(OUTPUT_DIR)/*.o

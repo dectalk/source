@@ -1,5 +1,4 @@
-# Generated automatically from Makefile.in by configure.
-# Makefile for samplosf/src/windict/ for Dectalk software for i686-pc-linux-gnu 
+# Makefile for samplosf/src/windict/ for Dectalk software for x86_64-unknown-linux-gnu 
 #
 # 001 MGS 05/22/1998 added include for dectalkf.h
 # 002 ETT 10/22/1998 moved to autoconf system. 
@@ -20,13 +19,13 @@ DEBUG_FLAGS= -g
 OPTO_FLAGS= -O2
 # how many silly compile warnings do we want?
 WARN_FLAGS= -Wall
-OS_VERSION=2.0.34
+OS_VERSION=4.19.104-microsoft-standard
 DT_LIB= -ltts
-LIBS= -lpthread
-DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE)
+LIBS= -lpthread 
+DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE) -DACCESS32 -DTYPING_MODE
 MMELIBS= -lpthread
 MME_DIR=.
-LINKFLAGS= -ldl -Bdynamic
+LINKFLAGS= -ldl 
 WINDICT_ALL=$(OUTPUT_DIR)/windic
 GTK_LIBS = `gtk-config --libs`
 GTK_DEFINES = `gtk-config --cflags`
@@ -82,7 +81,7 @@ $(OUTPUT_DIR)/link/compile_dict.o:compile_dict.c
 
 
 $(OUTPUT_DIR)/windic : $(OUTPUT_DIR)/link/windic.o $(OUTPUT_DIR)/link/compile_dict.o
-	$(CC) -o windic $(OUTPUT_DIR)/link/windic.o $(OUTPUT_DIR)/link/compile_dict.o -ltts -lpthread -ldl $(GTK_LIBS)
+	$(CC) -o $(OUTPUT_DIR)/windic $(OUTPUT_DIR)/link/windic.o $(OUTPUT_DIR)/link/compile_dict.o -ltts -lpthread -ldl $(GTK_LIBS)
 
 $(OUTPUT_DIR)/link/windic.o : windic.c
 	$(CC) -c $(CFLAGS) -o $@ $? $(GTK_DEFINES)

@@ -1,9 +1,9 @@
-# Generated automatically from Makefile.in by configure.
-# Makefile for samplosf/src/dtsamples/ for Dectalk software for i686-pc-linux-gnu 
+# Makefile for samplosf/src/dtsamples/ for Dectalk software for x86_64-unknown-linux-gnu 
 #
 # 001 ETT 10/22/1998 moved to autoconf system. 
 # 002 ETT 12/04/1998 changed dtsample_dtlib to be 
 #					 used in all samples as sample_dtlib
+# 003 MGS 06/19/2001 Solaris Port BATS#972
 #
 
 #### Start of system configuration section. ####  
@@ -21,18 +21,18 @@ DEBUG_FLAGS= -g
 OPTO_FLAGS= -O2
 # how many silly compile warnings do we want?
 WARN_FLAGS= -Wall
-OS_VERSION=2.0.34
-DTSAMPLE_ALL=$(OUTPUT_DIR)/say $(OUTPUT_DIR)/dtmemory 	$(OUTPUT_DIR)/aclock
+OS_VERSION=4.19.104-microsoft-standard
+DTSAMPLE_ALL=$(OUTPUT_DIR)/say $(OUTPUT_DIR)/dtmemory 	$(OUTPUT_DIR)/say_demo_$(LANG_CODE) 	$(OUTPUT_DIR)/dtmemory_demo_$(LANG_CODE) $(OUTPUT_DIR)/aclock
 DT_LIB= -ltts
-LIBS= -lpthread
-DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE)
+LIBS= -lpthread 
+DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE) -DACCESS32 -DTYPING_MODE
 MMELIBS= -lpthread
-LINKFLAGS= -ldl -Bdynamic
+LINKFLAGS= -ldl 
 #### End of system configuration section. #### 
 
 RM=rm -f
 
-INCLUDES= $(STD_INCLUDE)
+INCLUDES= -I$(STD_INCLUDE) -I$(STD_INCLUDE)/dtk
 
 #DEBUGFLAGS= -G3
 #OTHER_FLAGS=-threads 
@@ -57,8 +57,14 @@ all: $(DTSAMPLE_ALL)
 $(OUTPUT_DIR)/say:say.o
 	$(CC) $(LINKFLAGS) -o $@ $? $(DT_LIB) $(LIBS) $(MMELIBS)
 
+$(OUTPUT_DIR)/say_demo_$(LANG_CODE):say.o
+	$(CC) $(LINKFLAGS) -o $@ $? -ltts_demo_$(LANG_CODE) $(LIBS) $(MMELIBS)
+
 $(OUTPUT_DIR)/dtmemory:dtmemory.o
 	$(CC) $(LINKFLAGS) -o $@ $? $(DT_LIB) $(LIBS) $(MMELIBS)
+
+$(OUTPUT_DIR)/dtmemory_demo_$(LANG_CODE):dtmemory.o
+	$(CC) $(LINKFLAGS) -o $@ $? -ltts_demo_$(LANG_CODE) $(LIBS) $(MMELIBS)
 
 $(OUTPUT_DIR)/aclock:aclock.o
 	$(CC) $(LINKFLAGS) -o $@ $? $(DT_LIB) $(LIBS) $(MMELIBS)

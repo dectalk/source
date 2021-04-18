@@ -1,9 +1,9 @@
-# Generated automatically from Makefile.in by configure.
-# Makefile for dapi/src/dic for Dectalk software for i686-pc-linux-gnu 
+# Makefile for dapi/src/dic for Dectalk software for x86_64-unknown-linux-gnu 
 
 # 001 MGS 11/20/1997 added code so that when the name of the dictionary file in the zip
 # 		 changes case, this will still build the dictionary.
 # 002 ETT 10/22/1998 moved to autoconf system. 
+# 003 MGS 06/19/2001 Solaris Port BATS#972
 #
 
 #### Start of system configuration section. ####  
@@ -21,7 +21,8 @@ OPTO_FLAGS= -O2
 # how many silly compile warnings do we want?
 WARN_FLAGS= -Wall
 # what do we define?
-DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE)
+DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE) -DACCESS32 -DTYPING_MODE
+ALIGN_OPT=
 
 #### End of system configuration section. #### 
 
@@ -49,11 +50,11 @@ CFLAGS= $(DEBUG_FLAGS) $(OPTO_FLAGS) $(WARN_FLAGS) $(INCLUDES) $(DEFINES)
 all::	/usr/lib/dtk/dtalk_$(LANG_CODE).dic
 
 /usr/lib/dtk/dtalk_$(LANG_CODE).dic:$(OUTPUT_DIR)/dtalk_$(LANG_CODE).dic
-	$(LN_S)f $(DIC_DIR)/dtalk_$(LANG_CODE).dic $@
+	-$(LN_S)f $(DIC_DIR)/dtalk_$(LANG_CODE).dic $@
 
 $(OUTPUT_DIR)/dtalk_$(LANG_CODE).dic: $(OUTPUT_DIR)/dic_$(LANG_CODE) \
                                     dic_$(LANG_CODE).zip
-	unzip -o dic_$(LANG_CODE).zip 
+#	unzip -o dic_$(LANG_CODE).zip 
 	-mv DIC_$(U_LANG_CODE).TXT dic_$(LANG_CODE).txt
 	-mv DIC_$(U_LANG_CODE).txt dic_$(LANG_CODE).txt
 	-mv DIC_$(LANG_CODE).txt dic_$(LANG_CODE).txt
@@ -67,7 +68,7 @@ DTALK_SRC: dic.c
 DTALK_OBJ: $(OUTPUT_DIR)/link/dic.o
 
 $(OUTPUT_DIR)/dic_$(LANG_CODE): $(OUTPUT_DIR)/link/dic.o
-	$(CC) -o $@ $? 
+	$(CC) -o $@ $(ALIGN_OPT) $? 
 
 $(OUTPUT_DIR)/link/dic.o:dic.c
 	-mkdir -p $(OUTPUT_DIR)/link

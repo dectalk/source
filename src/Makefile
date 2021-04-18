@@ -1,17 +1,17 @@
-# Generated automatically from Makefile.in by configure.
-# Top Level Makefile for Dectalk software for alpha-dec-osf4.0
+# Top Level Makefile for Dectalk software for x86_64-unknown-linux-gnu
 
 # 001 MGS 11/19/1997 Added UK
 # 002 MGS 05/21/1998 removed extra spanish_release:: line
 # 003 ETT 10/22/1998 moved to autoconf system. this file, Makefile.in,
 #		is processed by configure to produce Makefile
+# 004 MGS 03/29/2001 Fixed spacing of french builds
 
 #### Start of system configuration section. ####  
 # first run autoconf in this dir the exe configure will pop out.
 # run configure and it will produce all the make files for you
 
-OS_VERSION=V4.0
-BUILD_DIR=/home/dectalk/rnd/dapi/build
+OS_VERSION=4.19.104-microsoft-standard
+BUILD_DIR=/home/leondro/Programming/dectalk/src/dapi/build
 
 #### End of system configuration section. #### 
 

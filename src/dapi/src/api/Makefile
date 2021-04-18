@@ -1,6 +1,9 @@
-# Makefile for dapi/src/osf/ for Dectalk software for x86_64-unknown-linux-gnu 
+# Makefile for dapi/src/api/ for Dectalk software for x86_64-unknown-linux-gnu 
 #
 # 001 ETT 10/22/1998 moved to autoconf system. 
+# 002 MGS 02/09/2000 Added API modules autoconf item
+# 003 NAL 04/07/2000 added gspeak demo info
+# 004 MGS 06/19/2001 Solaris Port BATS#972
 #
 
 #### Start of system configuration section. ####  
@@ -19,7 +22,8 @@ WARN_FLAGS= -Wall
 DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE) -DACCESS32 -DTYPING_MODE
 # include mme stuff?
 MME_DIR=.
-
+# compile with mme flags???
+MME_COMPILE_FLAGS=
 #### End of system configuration section. #### 
 
 RM=rm -f
@@ -43,20 +47,35 @@ INCLUDES= -I$(INCLUDE_DIR) -I$(API_DIR) -I$(CMD_DIR) -I$(DIC_DIR) -I$(KERNEL_DIR
 
 CFLAGS= $(DEBUG_FLAGS) $(OPTO_FLAGS) $(WARN_FLAGS) $(INCLUDES) $(DEFINES)
 
-OSF_SRC= playstub.c loadable.c dtmmio.c 
+API_SRC = ttsapi.c decstd97.c init.c
 
-OSF_OBJ= $(OUTPUT_DIR)/playstub.o $(OUTPUT_DIR)/dtmmio.o $(OUTPUT_DIR)/loadable.o
+API_OBJ = $(OUTPUT_DIR)/ttsapi_mme.o 			$(OUTPUT_DIR)/decstd97.o $(OUTPUT_DIR)/ttsapi_demo.o			$(OUTPUT_DIR)/init.o $(OUTPUT_DIR)/crypt2.o 			$(OUTPUT_DIR)/init_demo.o 
 
-all:: $(OSF_OBJ)
+#$(OUTPUT_DIR)/ttsapi.o $(OUTPUT_DIR)/ttsapi_mme.o\
+#          $(OUTPUT_DIR)/decstd97.o $(OUTPUT_DIR)/init.o $(OUTPUT_DIR)/crypt2.o
 
-$(OUTPUT_DIR)/playstub.o : playstub.c
-	$(CC) -c -DDEC $(CFLAGS) -o $@ $? 
+all:: $(API_OBJ)
 
-$(OUTPUT_DIR)/dtmmio.o:dtmmio.c
-	$(CC) -c $(CFLAGS) -o $@ $?
-
-$(OUTPUT_DIR)/loadable.o : loadable.c
+$(OUTPUT_DIR)/ttsapi.o : ttsapi.c
 	$(CC) -c -DDEC $(CFLAGS) -o $@ $?
 
+$(OUTPUT_DIR)/ttsapi_mme.o : ttsapi.c
+	$(CC) -c -DDEC $(CFLAGS) $(MME_COMPILE_FLAGS) -o $@ $? 
+
+$(OUTPUT_DIR)/ttsapi_demo.o : ttsapi.c
+	$(CC) -c -DDEC -DDEMO $(CFLAGS) $(MME_COMPILE_FLAGS) -o $@ $? 
+
+$(OUTPUT_DIR)/decstd97.o:decstd97.c 
+	$(CC) -c $(CFLAGS) -o $@ $?
+
+$(OUTPUT_DIR)/init.o:init.c
+	$(CC) -c -DDEC $(CFLAGS) $(MME_COMPILE_FLAGS) -o $@ $?
+
+$(OUTPUT_DIR)/init_demo.o:init.c
+	$(CC) -c -DDEC $(CFLAGS) -DDEMO $(MME_COMPILE_FLAGS) -o $@ $?
+
+$(OUTPUT_DIR)/crypt2.o:crypt2.c 
+	$(CC) -c $(CFLAGS) -o $@ $?
+
 clean::
-	rm $(OUTPUT_DIR)/*.o
+	$(RM) $(OUTPUT_DIR)/*.o

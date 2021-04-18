@@ -1,4 +1,4 @@
-# Makefile for dapi/src/osf/ for Dectalk software for x86_64-unknown-linux-gnu 
+# Makefile for dapi/src/vtm/ for Dectalk software for x86_64-unknown-linux-gnu 
 #
 # 001 ETT 10/22/1998 moved to autoconf system. 
 #
@@ -43,20 +43,24 @@ INCLUDES= -I$(INCLUDE_DIR) -I$(API_DIR) -I$(CMD_DIR) -I$(DIC_DIR) -I$(KERNEL_DIR
 
 CFLAGS= $(DEBUG_FLAGS) $(OPTO_FLAGS) $(WARN_FLAGS) $(INCLUDES) $(DEFINES)
 
-OSF_SRC= playstub.c loadable.c dtmmio.c 
+VTM_SRC=vtm.c sync.c vtmiont.c playtone.c
 
-OSF_OBJ= $(OUTPUT_DIR)/playstub.o $(OUTPUT_DIR)/dtmmio.o $(OUTPUT_DIR)/loadable.o
+VTM_OBJ=$(OUTPUT_DIR)/vtm.o $(OUTPUT_DIR)/vtmiont.o $(OUTPUT_DIR)/sync.o \
+	$(OUTPUT_DIR)/playtone.o 
 
-all:: $(OSF_OBJ)
+all:: $(VTM_OBJ)
 
-$(OUTPUT_DIR)/playstub.o : playstub.c
-	$(CC) -c -DDEC $(CFLAGS) -o $@ $? 
-
-$(OUTPUT_DIR)/dtmmio.o:dtmmio.c
+$(OUTPUT_DIR)/vtm.o:vtm.c
 	$(CC) -c $(CFLAGS) -o $@ $?
 
-$(OUTPUT_DIR)/loadable.o : loadable.c
-	$(CC) -c -DDEC $(CFLAGS) -o $@ $?
+$(OUTPUT_DIR)/vtmiont.o:vtmiont.c
+	$(CC) -c $(CFLAGS) -o $@ $?
+
+$(OUTPUT_DIR)/sync.o:sync.c
+	$(CC) -c $(CFLAGS) -o $@ $?
+
+$(OUTPUT_DIR)/playtone.o:playtone.c
+	$(CC) -c $(CFLAGS) -o $@ $?
 
 clean::
 	rm $(OUTPUT_DIR)/*.o

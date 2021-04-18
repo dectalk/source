@@ -1,5 +1,4 @@
-# Generated automatically from Makefile.in by configure.
-# Makefile for /dapi/src for Dectalk software for i686-pc-linux-gnu 
+# Makefile for /dapi/src for Dectalk software for x86_64-unknown-linux-gnu 
 #
 # this file does the linking of the library and the install
 #
@@ -9,7 +8,7 @@
 #		is processed by configure to produce Makefile
 # 003 ETT 12/07/1998 added SO_LOCATIONS
 # 004 NAL 04/07/2000 added gspeak demo info
-
+# 005 MGS 06/19/2001 Solaris Port BATS#972
 CP=cp
 RM=rm -f
 
@@ -22,21 +21,24 @@ RANLIB=ranlib
 #should we link linux_audio.o ?
 LINK_LINUX_AUDIO=$(OUTPUT_DIR_2)/linux_audio.o
 #which DECtalk libraries should we link?
-ALL=$(OUTPUT_DIR)/libtts_$(LANG_CODE).a 	$(OUTPUT_DIR)/libtts_$(LANG_CODE).so /usr/lib/libtts_$(LANG_CODE).a	$(SHLIB)/libtts_$(LANG_CODE).so /usr/lib/libtts_demo_$(LANG_CODE).a
+ALL=$(OUTPUT_DIR)/libtts_$(LANG_CODE).a 	$(OUTPUT_DIR)/libtts_$(LANG_CODE).so $(LIB_LN_S_A_DIR)/libtts_$(LANG_CODE).a	$(SHLIB)/libtts_$(LANG_CODE).so $(LIB_LN_S_A_DIR)/libtts_demo_$(LANG_CODE).a
 #which objects should we link into the libs?
-DECTALK_TTS_OBJS=$(API_ALL_OBJ) $(API_MME_OBJ) 	$(CMD_OBJ) $(LTS_OBJ) $(LTS_NORM_OBJS) $(PH_OBJ) $(KERNEL_OBJ) 	$(NT_OBJ) $(NT_MME_OBJ) $(OSF_OBJ) $(VTM_OBJ)
+DECTALK_TTS_OBJS=$(API_ALL_OBJ) $(API_MME_OBJ) 	$(CMD_OBJ) $(LTS_OBJ) $(LTS_NORM_OBJS) $(PH_OBJ) $(HL_OBJ) $(KERNEL_OBJ) 	$(NT_OBJ) $(NT_MME_OBJ) $(OSF_OBJ) $(VTM_OBJ)
 #
-DECTALK_MME_OBJS=$(API_ALL_OBJ) $(API_MME_OBJ) $(CMD_OBJ) $(LTS_OBJ) 	$(LTS_NORM_OBJS) $(PH_OBJ) $(KERNEL_OBJ) $(NT_OBJ) 	$(NT_MME_OBJ) $(OSF_OBJ) $(VTM_OBJ)
+DECTALK_MME_OBJS=$(API_ALL_OBJ) $(API_MME_OBJ) $(CMD_OBJ) $(LTS_OBJ) 	$(LTS_NORM_OBJS) $(PH_OBJ) $(HL_OBJ) $(KERNEL_OBJ) $(NT_OBJ) 	$(NT_MME_OBJ) $(OSF_OBJ) $(VTM_OBJ)
 
-DECTALK_DEMO_OBJS=$(API_ALL_OBJ) $(API_DEMO_OBJ) 	$(CMD_OBJ) $(LTS_OBJ) $(LTS_DEMO_OBJS) $(PH_OBJ) $(KERNEL_OBJ) 	$(NT_OBJ) $(NT_MME_OBJ) $(OSF_OBJ) $(VTM_OBJ)
+DECTALK_DEMO_OBJS=$(API_ALL_OBJ) $(API_DEMO_OBJ) 	$(CMD_OBJ) $(LTS_OBJ) $(LTS_DEMO_OBJS) $(PH_OBJ) $(HL_OBJ) $(KERNEL_OBJ) 	$(NT_OBJ) $(NT_MME_OBJ) $(OSF_OBJ) $(VTM_OBJ)
 #which system libraries get linked in?
-LIBS= -lpthread
+LIBS= $(OUTPUT_DIR)/libtts_$(LANG_CODE).a -lpthread -lc
 MMELIBS= -lpthread
 #where do the shared libs go?
-SHLIB=/lib
+SHLIB=/usr/local/lib
 #osf crazy hidden shared lib symbol madness:
 SO_LOCATIONS=
-DAPI_LD_SHARED=$(LD) -shared -soname 		libtts_$(LANG_CODE).so -o $@ $(DECTALK_TTS_OBJS) $(LIBS)
+DAPI_LD_SHARED=$(LD) -shared -Bsymbolic -soname 		libtts_$(LANG_CODE).so -o $@ $(DECTALK_TTS_OBJS) $(LIBS)
+LIB_LN_S_A_DIR=/usr/local/lib
+LIB_LN_S_SO_DIR=/usr/local/lib
+INC_LN_S_DIR=/usr/include/dtk
 #### End of system configuration section. #### 
 
 OUTPUT_DIR_2= $(OUTPUT_DIR)/link
@@ -60,16 +62,21 @@ PH_SRC= ph/ph_aloph.c ph/ph_claus.c ph/ph_draw.c ph/ph_drwt0.c \
         ph/ph_syl.c ph/ph_syntx.c ph/ph_task.c ph/ph_timng.c ph/ph_vdefi.c \
         ph/ph_vset.c ph/phinit.c ph/phlog.c 
 
+HL_SRC= acxf1c.c hlframe.c log10table.c brent.c \
+        inithl.c nasalf1x.c sqrttable.c circuit.c 
+
+ 
+
 KERNEL_SRC = kernel/services.c kernel/usa_init.c
 
 NT_SRC= nt/playaud.c nt/mmalloc.c nt/opthread.c nt/spc.c nt/pipe.c nt/linux_audio.c
 
 OSF_SRC= osf/playaud.c osf/loadable.c osf/dtmmio.c
  
-VTM_SRC=vtm/vtm.c vtm/vtmio.c vtm/sync.c vtm/playtone.c
+VTM_SRC=vtm/vtm.c vtm/vtmiont.c vtm/sync.c vtm/playtone.c
 
 ALL_SRC = $(API_SRC) $(CMD_SRC) $(LTS_SRC) $(PH_SRC) $(KERNEL_SRC) \
-          $(NT_SRC) $(OSF_SRC) $(VTM_SRC) 
+          $(NT_SRC) $(OSF_SRC) $(VTM_SRC) $(HL_SRC)
 
 API_ALL_OBJ = $(OUTPUT_DIR_2)/decstd97.o $(OUTPUT_DIR_2)/crypt2.o
 
@@ -77,7 +84,7 @@ API_TTS_OBJ = $(OUTPUT_DIR_2)/ttsapi.o
 
 API_MME_OBJ = $(OUTPUT_DIR_2)/ttsapi_mme.o $(OUTPUT_DIR_2)/init.o
 
-API_DEMO_OBJ = $(OUTPUT_DIR_2)/ttsapi_demo.o $(OUTPUT_DIR_2)/init.o
+API_DEMO_OBJ = $(OUTPUT_DIR_2)/ttsapi_demo.o $(OUTPUT_DIR_2)/init_demo.o
 
 LTS_NORM_OBJS = $(OUTPUT_DIR_2)/lsw_main.o
 
@@ -129,13 +136,20 @@ OSF_OBJ= $(OUTPUT_DIR_2)/loadable.o $(OUTPUT_DIR_2)/dtmmio.o
 
 OSF_TTS_OBJ= $(OUTPUT_DIR_2)/playstub.o 
 
-VTM_OBJ=$(OUTPUT_DIR_2)/vtm.o $(OUTPUT_DIR_2)/vtmio.o \
+VTM_OBJ=$(OUTPUT_DIR_2)/vtm.o $(OUTPUT_DIR_2)/vtmiont.o \
 	 $(OUTPUT_DIR_2)/sync.o $(OUTPUT_DIR_2)/playtone.o
+
+HL_OBJ= $(OUTPUT_DIR_2)/acxf1c.o $(OUTPUT_DIR_2)/hlframe.o \
+        $(OUTPUT_DIR_2)/log10table.o \
+        $(OUTPUT_DIR_2)/brent.o $(OUTPUT_DIR_2)/inithl.o \
+        $(OUTPUT_DIR_2)/nasalf1x.o $(OUTPUT_DIR_2)/sqrttable.o \
+        $(OUTPUT_DIR_2)/circuit.o 
+
 
 #DECTALK_OBJS= see above in config section
 #DECTALK_MME_OBJS= see above in config section
 
-ALL_OBJS=$(API_ALL_OBJ) $(API_MME_OBJ) $(CMD_OBJ) 	      $(LTS_OBJ) $(PH_OBJ) $(KERNEL_OBJ) $(NT_OBJ)               $(NT_MME_OBJ) $(OSF_OBJ) $(OSF_TTS_OBJ) $(VTM_OBJ)
+ALL_OBJS=$(API_ALL_OBJ) $(API_MME_OBJ) $(CMD_OBJ) 	      $(LTS_OBJ) $(PH_OBJ) $(HL_OBJ) $(KERNEL_OBJ) $(NT_OBJ)               $(NT_MME_OBJ) $(OSF_OBJ) $(OSF_TTS_OBJ) $(VTM_OBJ)               $(LTS_NORM_OBJS) $(LTS_DEMO_OBJS)
 
 #$(API_ALL_OBJ) $(API_MME_OBJ) $(API_TTS_OBJ) $(CMD_OBJ) $(LTS_OBJ) $(PH_OBJ) \
 #	 $(KERNEL_OBJ) $(NT_OBJ) $(NT_MME_OBJ) $(OSF_OBJ) $(OSF_TTS_OBJ)\
@@ -146,19 +160,19 @@ ALL_OBJS=$(API_ALL_OBJ) $(API_MME_OBJ) $(CMD_OBJ) 	      $(LTS_OBJ) $(PH_OBJ) $(
 
 all:: $(ALL)
 
-/usr/lib/libtts_$(LANG_CODE).a:$(OUTPUT_DIR)/libtts_$(LANG_CODE).a
-	-mkdir -p /usr/include/dtk
-	$(LN_S)f $(DT_LIB_DIR)/libtts_$(LANG_CODE).a $@
-	$(LN_S)f `pwd`/api/ttsapi.h /usr/include/dtk/ttsapi.h
-	$(LN_S)f `pwd`/osf/dtmmedefs.h /usr/include/dtk/dtmmedefs.h	
+$(LIB_LN_S_A_DIR)/libtts_$(LANG_CODE).a:$(OUTPUT_DIR)/libtts_$(LANG_CODE).a
+	-mkdir -p $(INC_LN_S_DIR)
+	-$(LN_S)f $(DT_LIB_DIR)/libtts_$(LANG_CODE).a $@
+	-$(LN_S)f `pwd`/api/ttsapi.h $(INC_LN_S_DIR)/ttsapi.h
+	-$(LN_S)f `pwd`/osf/dtmmedefs.h $(INC_LN_S_DIR)/dtmmedefs.h	
 
-/usr/lib/libtts_demo_$(LANG_CODE).a:$(OUTPUT_DIR)/libtts_demo_$(LANG_CODE).a
-	-mkdir -p /usr/include/dtk
-	$(LN_S)f $(DT_LIB_DIR)/libtts_demo_$(LANG_CODE).a $@
-	$(LN_S)f `pwd`/api/ttsapi.h /usr/include/dtk/ttsapi.h
-	$(LN_S)f `pwd`/osf/dtmmedefs.h /usr/include/dtk/dtmmedefs.h	
+$(LIB_LN_S_A_DIR)/libtts_demo_$(LANG_CODE).a:$(OUTPUT_DIR)/libtts_demo_$(LANG_CODE).a
+	-mkdir -p $(INC_LN_S_DIR)
+	-$(LN_S)f $(DT_LIB_DIR)/libtts_demo_$(LANG_CODE).a $@
+	-$(LN_S)f `pwd`/api/ttsapi.h $(INC_LN_S_DIR)/ttsapi.h
+	-$(LN_S)f `pwd`/osf/dtmmedefs.h $(INC_LN_S_DIR)/dtmmedefs.h	
 
-/usr/lib/libttsmme_$(LANG_CODE).a:$(OUTPUT_DIR)/libttsmme_$(LANG_CODE).a
+$(LIB_LN_S_A_DIR)/libttsmme_$(LANG_CODE).a:$(OUTPUT_DIR)/libttsmme_$(LANG_CODE).a
 	$(LN_S)f $(DT_LIB_DIR)/libttsmme_$(LANG_CODE).a $@
 
 $(SHLIB)/libtts_$(LANG_CODE).so:$(OUTPUT_DIR)/libtts_$(LANG_CODE).so

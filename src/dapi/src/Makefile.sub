@@ -1,5 +1,4 @@
-# Generated automatically from Makefile.sub.in by configure.
-# Makefile.sub for /dapi/src for Dectalk Software for i686-pc-linux-gnu
+# Makefile.sub for /dapi/src for Dectalk Software for x86_64-unknown-linux-gnu
 #
 # 001 MGS 05/22/1998 Added code for C FVTM
 # 002 ETT 10/22/1998 moved to autoconf system. 
@@ -17,6 +16,7 @@ all:
 	cd ph; $(MAKE) "LANGUAGE=$(LANGUAGE)" "OUTPUT_DIR=../$(OUTPUT_DIR)/link"
 	cd osf; $(MAKE) "LANGUAGE=$(LANGUAGE)" "OUTPUT_DIR=../$(OUTPUT_DIR)/link"
 	cd vtm; $(MAKE) "LANGUAGE=$(LANGUAGE)" "OUTPUT_DIR=../$(OUTPUT_DIR)/link"
+	cd hlsyn; $(MAKE) "LANGUAGE=$(LANGUAGE)" "OUTPUT_DIR=../$(OUTPUT_DIR)/link"
 	cd nt; $(MAKE) "LANGUAGE=$(LANGUAGE)" "OUTPUT_DIR=../$(OUTPUT_DIR)/link"
 	cd kernel; $(MAKE) "LANGUAGE=$(LANGUAGE)" "OUTPUT_DIR=../$(OUTPUT_DIR)/link"
 	cd api; $(MAKE) "LANGUAGE=$(LANGUAGE)" "OUTPUT_DIR=../$(OUTPUT_DIR)/link"

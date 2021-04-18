@@ -1,4 +1,4 @@
-# Makefile for dapi/src/osf/ for Dectalk software for x86_64-unknown-linux-gnu 
+# Makefile for dapi/src/kernel/ for Dectalk software for x86_64-unknown-linux-gnu 
 #
 # 001 ETT 10/22/1998 moved to autoconf system. 
 #
@@ -17,7 +17,6 @@ OPTO_FLAGS= -O2
 WARN_FLAGS= -Wall
 # what do we define?
 DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE) -DACCESS32 -DTYPING_MODE
-# include mme stuff?
 MME_DIR=.
 
 #### End of system configuration section. #### 
@@ -43,19 +42,16 @@ INCLUDES= -I$(INCLUDE_DIR) -I$(API_DIR) -I$(CMD_DIR) -I$(DIC_DIR) -I$(KERNEL_DIR
 
 CFLAGS= $(DEBUG_FLAGS) $(OPTO_FLAGS) $(WARN_FLAGS) $(INCLUDES) $(DEFINES)
 
-OSF_SRC= playstub.c loadable.c dtmmio.c 
+KERNEL_SRC = services.c usa_init.c
 
-OSF_OBJ= $(OUTPUT_DIR)/playstub.o $(OUTPUT_DIR)/dtmmio.o $(OUTPUT_DIR)/loadable.o
+KERNEL_OBJ = $(OUTPUT_DIR)/services.o $(OUTPUT_DIR)/usa_init.o
 
-all:: $(OSF_OBJ)
+all:: $(KERNEL_OBJ)
 
-$(OUTPUT_DIR)/playstub.o : playstub.c
-	$(CC) -c -DDEC $(CFLAGS) -o $@ $? 
-
-$(OUTPUT_DIR)/dtmmio.o:dtmmio.c
+$(OUTPUT_DIR)/services.o:services.c 
 	$(CC) -c $(CFLAGS) -o $@ $?
 
-$(OUTPUT_DIR)/loadable.o : loadable.c
+$(OUTPUT_DIR)/usa_init.o:usa_init.c
 	$(CC) -c -DDEC $(CFLAGS) -o $@ $?
 
 clean::

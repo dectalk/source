@@ -1,5 +1,4 @@
-# Generated automatically from Makefile.in by configure.
-# Makefile for samplosf/src/speak/ for Dectalk software for i686-pc-linux-gnu 
+# Makefile for samplosf/src/speak/ for Dectalk software for x86_64-unknown-linux-gnu 
 #
 # 001 ETT 10/22/1998 moved to autoconf system. 
 # 002 ETT 12/07/1998 added MMELIBS to link line 
@@ -19,12 +18,12 @@ DEBUG_FLAGS= -g
 OPTO_FLAGS= -O2
 # how many silly compile warnings do we want?
 WARN_FLAGS= -Wall
-OS_VERSION=2.0.34
+OS_VERSION=4.19.104-microsoft-standard
 DT_LIB= -ltts
-LIBS= -lpthread
-DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE)
+LIBS= -lpthread 
+DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE) -DACCESS32 -DTYPING_MODE
 MMELIBS= -lpthread
-LINKFLAGS= -ldl -Bdynamic
+LINKFLAGS= -ldl 
 SPEAK_ALL=$(OUTPUT_DIR)/gspeak $(OUTPUT_DIR_2)/gspeak_$(LANG_CODE) 		$(OUTPUT_DIR_2)/gspeakdem_$(LANG_CODE)
 #### End of system configuration section. #### 
 
