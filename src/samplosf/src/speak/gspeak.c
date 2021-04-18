@@ -1,8 +1,8 @@
 //#define S_DEBUG
 /*
- *									Copyright ©
+ *									Copyright ï¿½
  *    @DEC_COPYRIGHT@
- *    Copyright © 2000 Force Computers, Inc., a Solectron Company. All rights reserved.
+ *    Copyright ï¿½ 2000 Force Computers, Inc., a Solectron Company. All rights reserved.
  *
  *    This software is proprietary to and embodies the confidential
  *    technology of Force Computers Incorporated and other parties.
@@ -880,7 +880,8 @@ int main (int argc, char *argv[])
   modified_id = gtk_signal_connect(GTK_OBJECT(text_entry),"changed", 
 				   GTK_SIGNAL_FUNC(TextWidgetModified),text_entry);
   
-  vscrollbar = gtk_vscrollbar_new(GTK_TEXT(text_entry)->vadj);
+  
+  vscrollbar = gtk_vscrollbar_new(GTK_ADJUSTMENT(GTK_TEXT(text_entry)));
   gtk_box_pack_end(GTK_BOX(text_box), vscrollbar, FALSE, FALSE, 0);
     gtk_widget_show (vscrollbar);
   
