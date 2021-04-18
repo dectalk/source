@@ -11,7 +11,7 @@
 # where is the standard include dir? (cross compile critical)
 STD_INCLUDE=/usr/include/
 # which compiler do we use?
-CC=gcc
+CC=gcc -fPIC -g -O2
 # to debug or not to debug?
 DEBUG_FLAGS= -g
 # how much optomization do we use?

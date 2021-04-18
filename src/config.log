@@ -99,17 +99,16 @@ configure:1880: result: x86_64-unknown-linux-gnu
 configure:1900: checking target system type
 configure:1913: result: x86_64-unknown-linux-gnu
 configure:1989: checking for gcc
-configure:2005: found /usr/bin/gcc
-configure:2016: result: gcc
+configure:2016: result: gcc -fPIC -g -O2
 configure:2245: checking for C compiler version
-configure:2254: gcc --version >&5
+configure:2254: gcc -fPIC -g -O2 --version >&5
 gcc (Ubuntu 9.3.0-10ubuntu2) 9.3.0
 Copyright (C) 2019 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 configure:2265: $? = 0
-configure:2254: gcc -v >&5
+configure:2254: gcc -fPIC -g -O2 -v >&5
 Using built-in specs.
 COLLECT_GCC=gcc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
@@ -120,52 +119,52 @@ Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.3.0-10ubuntu2' 
 Thread model: posix
 gcc version 9.3.0 (Ubuntu 9.3.0-10ubuntu2) 
 configure:2265: $? = 0
-configure:2254: gcc -V >&5
+configure:2254: gcc -fPIC -g -O2 -V >&5
 gcc: error: unrecognized command line option '-V'
 gcc: fatal error: no input files
 compilation terminated.
 configure:2265: $? = 1
-configure:2254: gcc -qversion >&5
+configure:2254: gcc -fPIC -g -O2 -qversion >&5
 gcc: error: unrecognized command line option '-qversion'; did you mean '--version'?
 gcc: fatal error: no input files
 compilation terminated.
 configure:2265: $? = 1
 configure:2285: checking whether the C compiler works
-configure:2307: gcc    conftest.c  >&5
+configure:2307: gcc -fPIC -g -O2    conftest.c  >&5
 configure:2311: $? = 0
 configure:2359: result: yes
 configure:2362: checking for C compiler default output file name
 configure:2364: result: a.out
 configure:2370: checking for suffix of executables
-configure:2377: gcc -o conftest    conftest.c  >&5
+configure:2377: gcc -fPIC -g -O2 -o conftest    conftest.c  >&5
 configure:2381: $? = 0
 configure:2403: result: 
 configure:2425: checking whether we are cross compiling
-configure:2433: gcc -o conftest    conftest.c  >&5
+configure:2433: gcc -fPIC -g -O2 -o conftest    conftest.c  >&5
 configure:2437: $? = 0
 configure:2444: ./conftest
 configure:2448: $? = 0
 configure:2436: result: no
 configure:2441: checking for suffix of object files
-configure:2463: gcc -c   conftest.c >&5
+configure:2463: gcc -fPIC -g -O2 -c   conftest.c >&5
 configure:2467: $? = 0
 configure:2488: result: o
 configure:2492: checking whether we are using the GNU C compiler
-configure:2511: gcc -c   conftest.c >&5
+configure:2511: gcc -fPIC -g -O2 -c   conftest.c >&5
 configure:2511: $? = 0
 configure:2520: result: yes
-configure:2529: checking whether gcc accepts -g
-configure:2549: gcc -c -g  conftest.c >&5
+configure:2529: checking whether gcc -fPIC -g -O2 accepts -g
+configure:2549: gcc -fPIC -g -O2 -c -g  conftest.c >&5
 configure:2549: $? = 0
 configure:2590: result: yes
-configure:2607: checking for gcc option to accept ISO C89
-configure:2670: gcc  -c -g -O2  conftest.c >&5
+configure:2607: checking for gcc -fPIC -g -O2 option to accept ISO C89
+configure:2670: gcc -fPIC -g -O2  -c -g -O2  conftest.c >&5
 configure:2670: $? = 0
 configure:2683: result: none needed
-configure:2709: checking whether gcc and cc understand -c and -o together
-configure:2740: gcc -c conftest.c -o conftest2.o >&5
+configure:2709: checking whether gcc -fPIC -g -O2 and cc understand -c and -o together
+configure:2740: gcc -fPIC -g -O2 -c conftest.c -o conftest2.o >&5
 configure:2744: $? = 0
-configure:2750: gcc -c conftest.c -o conftest2.o >&5
+configure:2750: gcc -fPIC -g -O2 -c conftest.c -o conftest2.o >&5
 configure:2754: $? = 0
 configure:2765: cc -c conftest.c >&5
 configure:2769: $? = 0
@@ -223,8 +222,8 @@ config.status:802: creating udicunix/src/Makefile
 
 ac_cv_build=x86_64-unknown-linux-gnu
 ac_cv_c_compiler_gnu=yes
-ac_cv_env_CC_set=
-ac_cv_env_CC_value=
+ac_cv_env_CC_set=set
+ac_cv_env_CC_value='gcc -fPIC -g -O2'
 ac_cv_env_CFLAGS_set=
 ac_cv_env_CFLAGS_value=
 ac_cv_env_CPPFLAGS_set=
@@ -241,7 +240,7 @@ ac_cv_env_target_alias_set=
 ac_cv_env_target_alias_value=
 ac_cv_host=x86_64-unknown-linux-gnu
 ac_cv_objext=o
-ac_cv_prog_ac_ct_CC=gcc
+ac_cv_prog_ac_ct_CC='gcc -fPIC -g -O2'
 ac_cv_prog_ac_ct_RANLIB=ranlib
 ac_cv_prog_cc_c89=
 ac_cv_prog_cc_g=yes
@@ -257,7 +256,7 @@ ALL_LIB_OBJS='$(API_ALL_OBJ) $(API_MME_OBJ) $(CMD_OBJ) 	      $(LTS_OBJ) $(PH_OB
 API_OBJ_IN='$(OUTPUT_DIR)/ttsapi_mme.o 			$(OUTPUT_DIR)/decstd97.o $(OUTPUT_DIR)/ttsapi_demo.o			$(OUTPUT_DIR)/init.o $(OUTPUT_DIR)/crypt2.o 			$(OUTPUT_DIR)/init_demo.o '
 AR='ar cqls'
 BUILD_DIR='/home/leondro/Programming/dectalk/src/dapi/build'
-CC='gcc'
+CC='gcc -fPIC -g -O2'
 CFLAGS='-g -O2'
 CPPFLAGS=''
 DAPI_LD_SHARED='$(LD) -shared -Bsymbolic -soname 		libtts_$(LANG_CODE).so -o $@ $(DECTALK_TTS_OBJS) $(LIBS)'
@@ -322,7 +321,7 @@ SPEAK_ALL='$(OUTPUT_DIR)/gspeak $(OUTPUT_DIR_2)/gspeak_$(LANG_CODE) 		$(OUTPUT_D
 STD_INCLUDE='/usr/include/'
 WARN_FLAGS=' -Wall'
 WINDICT_ALL='$(OUTPUT_DIR)/windic'
-ac_ct_CC='gcc'
+ac_ct_CC='gcc -fPIC -g -O2'
 bindir='${exec_prefix}/bin'
 build='x86_64-unknown-linux-gnu'
 build_alias=''
