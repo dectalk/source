@@ -7,11 +7,19 @@ Whatever it is, I don't know.
 
 ## Building
 
-The DECtalk source code builds on some very old software.
-
+**This does not work yet.**
+I'm trying, but there's too many errors.
+Hop onto Discord or send a pull request!
 
 ```sh
-docker -v src:/src
+# Autoreconf... dunno
+autoreconf
+
+# Something about having to use `-fPIC`
+CC='gcc -fPIC -g -O2' ./configure
+
+# Make (but like it wants to use "/lib" for some reason, so sudo?!)
+sudo make
 ```
 
 ## Branches
