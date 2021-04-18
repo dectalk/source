@@ -1,10 +1,10 @@
 /* 
  ***********************************************************************
  *
- *                           Copyright ©
- *    © Digital Equipment Corporation 1996, 1997. All rights reserved.
- *    © SMART Modular Technologies 1999, 2000. All rights reserved.
- *      Copyright © 2000-2001 Force Computers, a Solectron Company. All rights reserved.
+ *                           Copyright ï¿½
+ *    ï¿½ Digital Equipment Corporation 1996, 1997. All rights reserved.
+ *    ï¿½ SMART Modular Technologies 1999, 2000. All rights reserved.
+ *      Copyright ï¿½ 2000-2001 Force Computers, a Solectron Company. All rights reserved.
  *
  *    Restricted Rights: Use, duplication, or disclosure by the U.S.
  *    Government is subject to restrictions as set forth in subparagraph
@@ -161,7 +161,7 @@ short Allonge_Cons_Finale (PDPH_T pDph_t, short Seg_Prec, short Cons, short pcnt
   switch (Cons & PVALUE) {
   case F_F: case F_S: case F_CH:
   case F_P: case F_T: case F_K:
-    pcnt = mlsh1 (pcnt, N135PRCNT);  //NEuF, LIS, LèCh, BOT, BAK, BIP
+    pcnt = mlsh1 (pcnt, N135PRCNT);  //NEuF, LIS, Lï¿½Ch, BOT, BAK, BIP
     regle (Cons, "Allonge_Cons_Finale F_F F_S F_CH F_P F_T F_K  1.35");
     break;
   case F_R:
@@ -177,7 +177,7 @@ short Allonge_Cons_Finale (PDPH_T pDph_t, short Seg_Prec, short Cons, short pcnt
     regle (Cons, "C2 Allonge_Cons_Finale F_M F_N F_GN F_NG  1.20");
     break;
   case F_V: case F_Z: case F_J:
-    pcnt = mlsh1 (pcnt, N120PRCNT);  // BI[Z]. rè[V].
+    pcnt = mlsh1 (pcnt, N120PRCNT);  // BI[Z]. rï¿½[V].
     regle (Cons, "Allonge_Cons_Finale F_V F_J F_Z pcnt 1.20");
     
     if( phone_feature (pDph_t, Seg_Prec) & FNASAL) {
@@ -219,7 +219,7 @@ void fr_phtiming (LPTTS_HANDLE_T phTTS) {
   PDPHSETTAR_ST  pDphsettar = pDph_t->pSTphsettar;
 
   short pcnt;
-  extern short fr_inhdr[];
+  extern const short fr_inhdr[];
 
 #define NbSyll_Phrase_Courte  6
 #define Duree_Min_Syll        45
@@ -665,7 +665,7 @@ void fr_phtiming (LPTTS_HANDLE_T phTTS) {
           }
         } else if (Raise && (Syll_Synt_Restantes != 0)) { 
           // last of several stressed words
-          //  last vowel or consonant of a group of stressed word (A:accentué)
+          //  last vowel or consonant of a group of stressed word (A:accentuï¿½)
           //  le peti(A) chA(A) de
           if (FMot (pDph_t, nphon, 1) ) {
             pcnt = mlsh1 (pcnt, N105PRCNT);
