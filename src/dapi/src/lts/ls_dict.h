@@ -1,9 +1,9 @@
 /*
  ***********************************************************************
  *                                                                      
- *                           Copyright ©                              
- *    Copyright © 2000-2001 Force Computers, Inc., a Solectron company. All rights reserved.
- *    © Digital Equipment Corporation 1996, 1997, 1998. All rights reserved.   
+ *                           Copyright ï¿½                              
+ *    Copyright ï¿½ 2000-2001 Force Computers, Inc., a Solectron company. All rights reserved.
+ *    ï¿½ Digital Equipment Corporation 1996, 1997, 1998. All rights reserved.   
  *                                                                    
  *    Restricted Rights: Use, duplication, or disclosure by the U.S.    
  *    Government is subject to restrictions as set forth in subparagraph
@@ -214,20 +214,20 @@ struct  dic_entry
 #endif
 #endif
 
-#define DICT_INDEX       ((U32 *)pKsd_t->fdic_index[DICT_LANG])
-#define FDICT_INDEX      ((U32 *)pKsd_t->foreigndic_index[DICT_LANG])
-#define UDICT_INDEX      ((U32 *)pKsd_t->udic_index[DICT_LANG])
-#define ADICT_INDEX      ((U32 *)pKsd_t->adic_index[DICT_LANG])
+#define DICT_INDEX       *((U32 **) (&(pKsd_t)->fdic_index[DICT_LANG]))
+#define FDICT_INDEX      *((U32 **) (&(pKsd_t)->foreigndic_index[DICT_LANG]))
+#define UDICT_INDEX      *((U32 **) (&(pKsd_t)->udic_index[DICT_LANG]))
+#define ADICT_INDEX      *((U32 **) (&(pKsd_t)->adic_index[DICT_LANG]))
 
 #define DICT_DATA       (((pKsd_t->fdic_data[DICT_LANG])))
 #define FDICT_DATA      (((pKsd_t->foreigndic_data[DICT_LANG])))
 #define UDICT_DATA      (((pKsd_t->udic_data[DICT_LANG])))
 #define ADICT_DATA      (((pKsd_t->adic_data[DICT_LANG])))
 
-#define DICT_ACCESS(x)       ((struct dic_entry *)(&(pKsd_t->fdic_data[DICT_LANG][((U32 *)pKsd_t->fdic_index[DICT_LANG])[(x)]])))
-#define FDICT_ACCESS(x)      ((struct dic_entry *)(&(pKsd_t->foreigndic_data[DICT_LANG][((U32 *)pKsd_t->foreigndic_index[DICT_LANG])[(x)]])))
-#define UDICT_ACCESS(x)      ((struct dic_entry *)(&(pKsd_t->udic_data[DICT_LANG][((U32 *)pKsd_t->udic_index[DICT_LANG])[(x)]])))
-#define ADICT_ACCESS(x)      ((struct dic_entry *)(&(pKsd_t->adic_data[DICT_LANG][((U32 *)pKsd_t->adic_index[DICT_LANG])[(x)]])))
+#define DICT_ACCESS(x)       ((struct dic_entry *)(&(DICT_DATA[DICT_INDEX[(x)]])))
+#define FDICT_ACCESS(x)      ((struct dic_entry *)(&(FDICT_DATA[FDICT_INDEX[(x)]])))
+#define UDICT_ACCESS(x)      ((struct dic_entry *)(&(UDICT_DATA[UDICT_INDEX[(x)]])))
+#define ADICT_ACCESS(x)      ((struct dic_entry *)(&(ADICT_DATA[ADICT_INDEX[(x)]])))
 
 #define DICT_ENTRY      pKsd_t->fdic_entries[DICT_LANG]
 #define FDICT_ENTRY     pKsd_t->foreigndic_entries[DICT_LANG]
