@@ -40,12 +40,12 @@
 /* type definitions */ 
 
 typedef unsigned char GERLETTER;
+typedef unsigned char uBOOL;
 #ifndef __linux__
 typedef unsigned short  U16;
 #ifndef FRENCH
 typedef short int  SHORT;
 #endif
-typedef unsigned char uBOOL;
 
 #ifndef ARM7
 typedef int  BOOL;
