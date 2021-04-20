@@ -1,10 +1,10 @@
 #ifndef VOCAL
 /************************************************************
  *
- *                           Copyright ©
- *	  Copyright © 2002 Fonix Corporation. All rights reserved.
- *	  Copyright © 2000-2001 Force Computers Inc., a Solectron company. All rights reserved.
- *    © Digital Equipment Corporation 1996, 1997, 1998. All rights reserved.
+ *                           Copyright ï¿½
+ *	  Copyright ï¿½ 2002 Fonix Corporation. All rights reserved.
+ *	  Copyright ï¿½ 2000-2001 Force Computers Inc., a Solectron company. All rights reserved.
+ *    ï¿½ Digital Equipment Corporation 1996, 1997, 1998. All rights reserved.
  *
  *    Restricted Rights: Use, duplication, or disclosure by the U.S.
  *    Government is subject to restrictions as set forth in subparagraph
@@ -153,10 +153,10 @@ extern int _far par_dict_lookup(PKSD_T, char *, int);
 #endif
 
 //#ifdef WIN32
-#ifndef __linux__
-#if !defined ARM7 || (defined ARM7 && defined ACCESS_SOLUTIONS)
-#ifdef NEW_BINARY_PARSER
-#ifndef DEBUG
+//#ifndef __linux__
+//#if !defined ARM7 || (defined ARM7 && defined ACCESS_SOLUTIONS)
+//#ifdef NEW_BINARY_PARSER
+//#ifndef DEBUG
 __inline void par_copy_index_list(pindex_data_t dest_index,
 								  int		    dest_pos,
 								  pindex_data_t src_index,
@@ -181,10 +181,10 @@ __inline int par_is_index_set(pindex_data_t indexes,
 	}
 	return(0);
 }
-#endif
-#endif
-#endif
-#endif
+//#endif
+//#endif
+//#endif
+//#endif
 //#endif
 
 #ifdef EPSON_ARM7
@@ -787,27 +787,27 @@ void cm_text_getclause(LPTTS_HANDLE_T phTTS)
 										switch(pCmd_t->clausebuf[j])
 										{
 										case 'a':
-											pCmd_t->clausebuf[j]=(unsigned char)'ä';
+											pCmd_t->clausebuf[j]=(unsigned char)'ï¿½';
 											didit=1;
 											break;
 										case 'A':
-											pCmd_t->clausebuf[j]=(unsigned char)'Ä';
+											pCmd_t->clausebuf[j]=(unsigned char)'ï¿½';
 											didit=1;
 											break;
 										case 'o':
-											pCmd_t->clausebuf[j]=(unsigned char)'ö';
+											pCmd_t->clausebuf[j]=(unsigned char)'ï¿½';
 											didit=1;
 											break;
 										case 'O':
-											pCmd_t->clausebuf[j]=(unsigned char)'Ö';
+											pCmd_t->clausebuf[j]=(unsigned char)'ï¿½';
 											didit=1;
 											break;
 										case 'u':
-											pCmd_t->clausebuf[j]=(unsigned char)'ü';
+											pCmd_t->clausebuf[j]=(unsigned char)'ï¿½';
 											didit=1;
 											break;
 										case 'U':
-											pCmd_t->clausebuf[j]=(unsigned char)'Ü';
+											pCmd_t->clausebuf[j]=(unsigned char)'ï¿½';
 											didit=1;
 											break;
 										}
