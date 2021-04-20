@@ -26,7 +26,7 @@ DTSAMPLE_ALL=$(OUTPUT_DIR)/say $(OUTPUT_DIR)/dtmemory 	$(OUTPUT_DIR)/say_demo_$(
 DT_LIB= -ltts
 LIBS= -lpthread 
 DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE) -DACCESS32 -DTYPING_MODE
-MMELIBS= -lpthread
+MMELIBS= -lm -lpthread
 LINKFLAGS= -ldl 
 #### End of system configuration section. #### 
 

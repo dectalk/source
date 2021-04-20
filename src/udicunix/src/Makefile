@@ -24,7 +24,7 @@ OS_VERSION=4.19.104-microsoft-standard
 LIBS= -lpthread 
 DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE) -DACCESS32 -DTYPING_MODE
 PLATFORM_DEFS=
-MMELIBS= -lpthread
+MMELIBS= -lm -lpthread
 LINKFLAGS= -ldl 
 MME_DIR=.
 #### End of system configuration section. #### 

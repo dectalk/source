@@ -62,18 +62,7 @@ PATH: /mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common
 PATH: /mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR
 PATH: /mnt/c/Program Files/TortoiseSVN/bin
 PATH: /mnt/c/Software/apache-maven-3.6.3/bin
-PATH: /mnt/c/Program Files (x86)/ZeroTier/One/
-PATH: /mnt/c/Program Files (x86)/ClockworkMod/Universal Adb Driver
-PATH: /mnt/c/Program Files/MiKTeX/miktex/bin/x64/
-PATH: /mnt/c/Strawberry/c/bin
-PATH: /mnt/c/Strawberry/perl/site/bin
-PATH: /mnt/c/Strawberry/perl/bin
-PATH: /mnt/c/Program Files/qemu
-PATH: /mnt/c/Program Files (x86)/PDFtk Server/bin/
-PATH: /mnt/c/Program Files/nodejs/
-PATH: /mnt/c/Program Files/Docker/Docker/resources/bin
-PATH: /mnt/c/ProgramData/DockerDesktop/version-bin
-PATH: /mnt/c/Program Files/dotnet/
+PATH: /mnt/c/Program Fi
 PATH: /mnt/c/Program Files/platform-tools
 PATH: /mnt/c/Users/Leond/AppData/Local/Programs/Python/Python38/Scripts/
 PATH: /mnt/c/Users/Leond/AppData/Local/Programs/Python/Python38/
@@ -296,7 +285,7 @@ LTLIBOBJS=''
 ML_ALL='$(LIB_LN_S_A_DIR)/libtts.a $(SHLIB)/libtts.so'
 ML_TTS_MME_SO=''
 ML_TTS_SO='$(LD) -shared -Bsymbolic -soname libtts.so 	-o $@ ../build/$(OS_VERSION)/$(ML_OUT)/link/dtalk_ml.o 	../build/$(OS_VERSION)/$(ML_OUT)/link/init.o 	../build/$(OS_VERSION)/$(ML_OUT)/libtts.a  -ldl -lpthread -lc'
-MMELIBS=' -lpthread'
+MMELIBS=' -lm -lpthread'
 MME_COMPILE_FLAGS=''
 MME_DIR='.'
 OBJEXT='o'

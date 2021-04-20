@@ -22,7 +22,7 @@ OS_VERSION=4.19.104-microsoft-standard
 DT_LIB= -ltts
 LIBS= -lpthread 
 DEFINES= -D_REENTRANT -DNOMME -DLTSSIM -DTTSSIM -DANSI -DBLD_DECTALK_DLL -D$(LANGUAGE) -DACCESS32 -DTYPING_MODE
-MMELIBS= -lpthread
+MMELIBS= -lm -lpthread
 LINKFLAGS= -ldl 
 SPEAK_ALL=$(OUTPUT_DIR)/gspeak $(OUTPUT_DIR_2)/gspeak_$(LANG_CODE) 		$(OUTPUT_DIR_2)/gspeakdem_$(LANG_CODE)
 #### End of system configuration section. #### 

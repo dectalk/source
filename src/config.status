@@ -620,7 +620,7 @@ S["DAPI_LD_SHARED"]="$(LD) -shared -Bsymbolic -soname 		libtts_$(LANG_CODE).so -
 S["SO_LOCATIONS"]=""
 S["SHLIB"]="/usr/local/lib"
 S["DT_SO_LIBS"]=" $(OUTPUT_DIR)/libtts_$(LANG_CODE).a -lpthread -lc"
-S["MMELIBS"]=" -lpthread"
+S["MMELIBS"]=" -lm -lpthread"
 S["DECTALK_DEMO_OBJS"]="$(API_ALL_OBJ) $(API_DEMO_OBJ) 	$(CMD_OBJ) $(LTS_OBJ) $(LTS_DEMO_OBJS) $(PH_OBJ) $(HL_OBJ) $(KERNEL_OBJ) 	$(NT_OBJ) $(NT_MME_OBJ) $(OSF_OBJ) $(VTM_O"\
 "BJ)"
 S["DECTALK_MME_OBJS"]="$(API_ALL_OBJ) $(API_MME_OBJ) $(CMD_OBJ) $(LTS_OBJ) 	$(LTS_NORM_OBJS) $(PH_OBJ) $(HL_OBJ) $(KERNEL_OBJ) $(NT_OBJ) 	$(NT_MME_OBJ) $(OSF_OBJ) $(VTM_OB"\

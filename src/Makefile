@@ -19,9 +19,11 @@ all:: release
 #debug
 #release
 
-debug::	english_debug uk_debug spanish_debug german_debug latin_american_debug french_debug
+# debug::	english_debug uk_debug spanish_debug german_debug latin_american_debug french_debug
+# release:: english_release uk_release spanish_release german_release latin_american_release french_release
 
-release:: english_release uk_release spanish_release german_release latin_american_release french_release
+debug::	english_debug
+release:: english_release
 
 english_release:
 	$(MAKE) -f Makefile.sub "LANGUAGE=ENGLISH -DENGLISH_US -DACNA" \

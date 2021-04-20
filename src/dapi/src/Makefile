@@ -30,7 +30,7 @@ DECTALK_MME_OBJS=$(API_ALL_OBJ) $(API_MME_OBJ) $(CMD_OBJ) $(LTS_OBJ) 	$(LTS_NORM
 DECTALK_DEMO_OBJS=$(API_ALL_OBJ) $(API_DEMO_OBJ) 	$(CMD_OBJ) $(LTS_OBJ) $(LTS_DEMO_OBJS) $(PH_OBJ) $(HL_OBJ) $(KERNEL_OBJ) 	$(NT_OBJ) $(NT_MME_OBJ) $(OSF_OBJ) $(VTM_OBJ)
 #which system libraries get linked in?
 LIBS= $(OUTPUT_DIR)/libtts_$(LANG_CODE).a -lpthread -lc
-MMELIBS= -lpthread
+MMELIBS= -lm -lpthread
 #where do the shared libs go?
 SHLIB=/usr/local/lib
 #osf crazy hidden shared lib symbol madness:

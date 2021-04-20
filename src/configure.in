@@ -362,16 +362,16 @@ AC_SUBST(DECTALK_DEMO_OBJS)dnl
 
 
 dnl always use the "-lpthread" NOT "-lpthreads" in linux
-MMELIBS=" -lmme"
+MMELIBS=" -lm -lmme"
 case "$target" in
 	arm-*-linux-*) MMELIBS=" -lpthread " ;;
-	*-*-linux-*) MMELIBS=" -lpthread" ;;
+	*-*-linux-*) MMELIBS=" -lm -lpthread" ;;
 	powerpc-apple-*) MMELIBS=" -lpthread" ;;
 	sparc-sun-*) MMELIBS=" " ;;
 esac
 AC_SUBST(MMELIBS)dnl
 
-LIBS=" -llmf -lpthreads -lmach -lexc -lc -lrt -lots"
+LIBS=" -lm -llmf -lpthreads -lmach -lexc -lc -lrt -lots"
 case "$target" in 
 	arm-ipaq-linux-*) LIBS=" -lpthread -L/skiff/local/lib/gcc-lib/arm-linux/2.95.2/ -lgcc" ;;
 	arm-*-linux-*) LIBS=" -L- -L/usr/local/arm-unknown-linuxelf/lib -lpthread " ;;
@@ -381,7 +381,7 @@ case "$target" in
 esac
 AC_SUBST(LIBS)dnl
 
-DT_SO_LIBS=" -llmf -lpthreads -lmach -lexc -lc -lrt -lots"
+DT_SO_LIBS=" -lm -llmf -lpthreads -lmach -lexc -lc -lrt -lots"
 case "$target" in 
 	arm-ipaq-linux-*) DT_SO_LIBS=" \$(OUTPUT_DIR)/libtts_\$(LANG_CODE).a -lpthread -lc -L/skiff/local/lib/gcc-lib/arm-linux/2.95.2/ -lgcc -lfloat -lm" ;;
 	arm-*-linux-*) DT_SO_LIBS=" -L- -L/usr/local/arm-unknown-linuxelf/lib -lpthread -lm" ;;
