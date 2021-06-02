@@ -29,7 +29,7 @@ DECTALK_MME_OBJS=$(API_ALL_OBJ) $(API_MME_OBJ) $(CMD_OBJ) $(LTS_OBJ) 	$(LTS_NORM
 
 DECTALK_DEMO_OBJS=$(API_ALL_OBJ) $(API_DEMO_OBJ) 	$(CMD_OBJ) $(LTS_OBJ) $(LTS_DEMO_OBJS) $(PH_OBJ) $(HL_OBJ) $(KERNEL_OBJ) 	$(NT_OBJ) $(NT_MME_OBJ) $(OSF_OBJ) $(VTM_OBJ)
 #which system libraries get linked in?
-LIBS= $(OUTPUT_DIR)/libtts_$(LANG_CODE).a -lpthread -lc
+LIBS= -lm $(OUTPUT_DIR)/libtts_$(LANG_CODE).a -lpthread -lc
 MMELIBS= -lm -lpthread
 #where do the shared libs go?
 SHLIB=/usr/local/lib
@@ -173,13 +173,13 @@ $(LIB_LN_S_A_DIR)/libtts_demo_$(LANG_CODE).a:$(OUTPUT_DIR)/libtts_demo_$(LANG_CO
 	-$(LN_S)f `pwd`/osf/dtmmedefs.h $(INC_LN_S_DIR)/dtmmedefs.h	
 
 $(LIB_LN_S_A_DIR)/libttsmme_$(LANG_CODE).a:$(OUTPUT_DIR)/libttsmme_$(LANG_CODE).a
-	$(LN_S)f $(DT_LIB_DIR)/libttsmme_$(LANG_CODE).a $@
+	-$(LN_S)f $(DT_LIB_DIR)/libttsmme_$(LANG_CODE).a $@
 
 $(SHLIB)/libtts_$(LANG_CODE).so:$(OUTPUT_DIR)/libtts_$(LANG_CODE).so
-	$(LN_S)f $(DT_LIB_DIR)/libtts_$(LANG_CODE).so $@
+	-$(LN_S)f $(DT_LIB_DIR)/libtts_$(LANG_CODE).so $@
 
 $(SHLIB)/libttsmme_$(LANG_CODE).so:$(OUTPUT_DIR)/libttsmme_$(LANG_CODE).so
-	$(LN_S)f $(DT_LIB_DIR)/libttsmme_$(LANG_CODE).so $@
+	-$(LN_S)f $(DT_LIB_DIR)/libttsmme_$(LANG_CODE).so $@
 
 $(OUTPUT_DIR)/libtts_$(LANG_CODE).a: $(ALL_OBJS)
 	$(RM) $@
