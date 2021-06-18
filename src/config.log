@@ -27,7 +27,7 @@ uname -v = #1 SMP Wed Feb 19 06:37:35 UTC 2020
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
-PATH: /home/leondro/.vscode-server/bin/3c4e3df9e89829dce27b7b5c24508306b151f30d/bin
+PATH: /home/leondro/.vscode-server/bin/054a9295330880ed74ceaedda236253b4f39a335/bin
 PATH: /home/leondro/Programming/emsdk
 PATH: /home/leondro/Programming/emsdk/upstream/emscripten
 PATH: /home/leondro/Programming/emsdk/node/12.18.1_64bit/bin
@@ -62,7 +62,10 @@ PATH: /mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common
 PATH: /mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR
 PATH: /mnt/c/Program Files/TortoiseSVN/bin
 PATH: /mnt/c/Software/apache-maven-3.6.3/bin
-PATH: /mnt/c/Program Fi
+PATH: /mnt/c/Program Files/nodejs
+PATH: /mnt/c/Program Files/Docker/Docker/resources/bin
+PATH: /mnt/c/ProgramData/DockerDesktop/version-bin
+PATH: /mnt/c/Program Files (x86)/PDFtk Server/bin/
 PATH: /mnt/c/Program Files/platform-tools
 PATH: /mnt/c/Users/Leond/AppData/Local/Programs/Python/Python38/Scripts/
 PATH: /mnt/c/Users/Leond/AppData/Local/Programs/Python/Python38/
@@ -272,7 +275,7 @@ INIT_ML='$(CC) -c $(CFLAGS) $(DEFINES) -o $@ $?'
 LD='ld'
 LDFLAGS=''
 LIBOBJS=''
-LIBS=' -lpthread '
+LIBS=' -lm -lpthread '
 LIB_LN_S_A_DIR='/usr/local/lib'
 LIB_LN_S_SO_DIR='/usr/local/lib'
 LICENSE_ALL='$(OUTPUT_DIR)/licenin1 $(OUTPUT_DIR)/licenin3             $(OUTPUT_DIR)/licenin7 $(OUTPUT_DIR)/installer'

@@ -3207,7 +3207,7 @@ LIBS=" -lm -llmf -lpthreads -lmach -lexc -lc -lrt -lots"
 case "$target" in
 	arm-ipaq-linux-*) LIBS=" -lpthread -L/skiff/local/lib/gcc-lib/arm-linux/2.95.2/ -lgcc" ;;
 	arm-*-linux-*) LIBS=" -L- -L/usr/local/arm-unknown-linuxelf/lib -lpthread " ;;
-	*-*-linux-*) LIBS=" -lpthread " ;;
+	*-*-linux-*) LIBS=" -lm -lpthread " ;;
 	powerpc-apple-*) LIBS=" -lpthread -L../../../dapi/src/portaudio/lib -lportaudio -framework CoreAudio -framework AudioToolbox" ;;
 	sparc-sun-*) LIBS=" " ;;
 esac
@@ -3216,7 +3216,7 @@ DT_SO_LIBS=" -lm -llmf -lpthreads -lmach -lexc -lc -lrt -lots"
 case "$target" in
 	arm-ipaq-linux-*) DT_SO_LIBS=" \$(OUTPUT_DIR)/libtts_\$(LANG_CODE).a -lpthread -lc -L/skiff/local/lib/gcc-lib/arm-linux/2.95.2/ -lgcc -lfloat -lm" ;;
 	arm-*-linux-*) DT_SO_LIBS=" -L- -L/usr/local/arm-unknown-linuxelf/lib -lpthread -lm" ;;
-	*-*-linux-*) DT_SO_LIBS=" \$(OUTPUT_DIR)/libtts_\$(LANG_CODE).a -lpthread -lc" ;;
+	*-*-linux-*) DT_SO_LIBS=" \$(OUTPUT_DIR)/libtts_\$(LANG_CODE).a -lpthread -lc -lm" ;;
 	powerpc-apple-*) DT_SO_LIBS="-lpthread -Lportaudio/lib -lportaudio -framework CoreAudio -framework AudioToolbox" ;;
 	sparc-sun-*) DT_SO_LIBS=" \$(OUTPUT_DIR)/libtts_\$(LANG_CODE).a -lpthread -lc -lrt -lm" ;;
 esac

@@ -464,96 +464,96 @@ void write_pipe( LPPIPE_T pPipe, void * pItems, UINT uiNumberToWrite )
     case BYTE_PIPE:
 
       for ( i = 0; i < uiRemaining; i++ )
-       *(*(BYTE_T **)(&(pPipe)->pInput))++ = (*((BYTE_T *)pItems))++;
+       *(*(BYTE_T **)(&(pPipe)->pInput))++ = *((*((BYTE_T **)(&pItems)))++);
 
       pPipe->pInput = pPipe->pStart;
 
       for ( i = uiRemaining; i < uiNumberToWrite; i++ )
-       *(*(BYTE_T **)(&(pPipe)->pInput))++ = (*((BYTE_T *)pItems))++;
+       *(*(BYTE_T **)(&(pPipe)->pInput))++ = *((*((BYTE_T **)(&pItems)))++);
 
       break;
 
     case WORD_PIPE:
 
       for ( i = 0; i < uiRemaining; i++ )
-       *(*(WORD_T **)(&(pPipe)->pInput))++ = (*((WORD_T *)pItems))++;
+       *(*(WORD_T **)(&(pPipe)->pInput))++ = *((*((WORD_T **)(&pItems)))++);
 
       pPipe->pInput = pPipe->pStart;
 
       for ( i = uiRemaining; i < uiNumberToWrite; i++ )
-       *(*(WORD_T **)(&(pPipe)->pInput))++ = (*((WORD_T *)pItems))++;
+       *(*(WORD_T **)(&(pPipe)->pInput))++ = *((*((WORD_T **)(&pItems)))++);
 
       break;
 
     case DWORD_PIPE:
 
       for ( i = 0; i < uiRemaining; i++ )
-       *(*(DWORD_T **)(&(pPipe)->pInput))++ = (*((DWORD_T *)pItems))++;
+       *(*(DWORD_T **)(&(pPipe)->pInput))++ = *((*((DWORD_T **)(&pItems)))++);
 
       pPipe->pInput = pPipe->pStart;
 
       for ( i = uiRemaining; i < uiNumberToWrite; i++ )
-       *(*(DWORD_T **)(&(pPipe)->pInput))++ = (*((DWORD_T *)pItems))++;
+       *(*(DWORD_T **)(&(pPipe)->pInput))++ = *((*((DWORD_T **)(&pItems)))++);
 
       break;
 
     case QWORD_PIPE:
 
       for ( i = 0; i < uiRemaining; i++ )
-       *(*(QWORD_T **)(&(pPipe)->pInput))++ = (*((QWORD_T *)pItems))++;
+       *(*(QWORD_T **)(&(pPipe)->pInput))++ = *((*((QWORD_T **)(&pItems)))++);
 
       pPipe->pInput = pPipe->pStart;
 
       for ( i = uiRemaining; i < uiNumberToWrite; i++ )
-       *(*(QWORD_T **)(&(pPipe)->pInput))++ = (*((QWORD_T *)pItems))++;
+       *(*(QWORD_T **)(&(pPipe)->pInput))++ = *((*((QWORD_T **)(&pItems)))++);
 
       break;
 
     case FLOAT_PIPE:
 
       for ( i = 0; i < uiRemaining; i++ )
-       *(*(float **)(&(pPipe)->pInput))++ = (*((float *)pItems))++;
+       *(*(float **)(&(pPipe)->pInput))++ = *((*((float **)(&pItems)))++);
 
       pPipe->pInput = pPipe->pStart;
 
       for ( i = uiRemaining; i < uiNumberToWrite; i++ )
-       *(*(float **)(&(pPipe)->pInput))++ = (*((float *)pItems))++;
+       *(*(float **)(&(pPipe)->pInput))++ = *((*((float **)(&pItems)))++);
 
       break;
 
     case DOUBLE_PIPE:
 
       for ( i = 0; i < uiRemaining; i++ )
-       *(*(double **)(&(pPipe)->pInput))++ = (*((double *)pItems))++;
+       *(*(double **)(&(pPipe)->pInput))++ = *((*((double **)(&pItems)))++);
 
       pPipe->pInput = pPipe->pStart;
 
       for ( i = uiRemaining; i < uiNumberToWrite; i++ )
-       *(*(double **)(&(pPipe)->pInput))++ = (*((double *)pItems))++;
+       *(*(double **)(&(pPipe)->pInput))++ = *((*((double **)(&pItems)))++);
 
       break;
 
     case VOID_PTR_PIPE:
 
       for ( i = 0; i < uiRemaining; i++ )
-       *(*(void ***)(&(pPipe)->pInput))++ = (*((void **)pItems))++;
+       *(*(void ***)(&(pPipe)->pInput))++ = *((*((void ***)(&pItems)))++);
 
       pPipe->pInput = pPipe->pStart;
 
       for ( i = uiRemaining; i < uiNumberToWrite; i++ )
-       *(*(void ***)(&(pPipe)->pInput))++ = (*((void **)pItems))++;
+       *(*(void ***)(&(pPipe)->pInput))++ = *((*((void ***)(&pItems)))++);
 
       break;
 
     default:
 
       for ( i = 0; i < uiRemaining; i++ )
-       *(*(BYTE_T **)(&(pPipe)->pInput))++ = (*((BYTE_T *)pItems))++;
+       *(*(BYTE_T **)(&(pPipe)->pInput))++ = *((*((BYTE_T **)(&pItems)))++);
 
       pPipe->pInput = pPipe->pStart;
 
       for ( i = uiRemaining; i < uiNumberToWrite; i++ )
-       *(*(BYTE_T **)(&(pPipe)->pInput))++ = (*((BYTE_T *)pItems))++;
+       *(*(BYTE_T **)(&(pPipe)->pInput))++ = *((*((BYTE_T **)(&pItems)))++);
 
       break;
     }
@@ -575,56 +575,56 @@ void write_pipe( LPPIPE_T pPipe, void * pItems, UINT uiNumberToWrite )
     case BYTE_PIPE:
 
       for ( i = 0; i < uiNumberToWrite; i++ )
-       *(*(BYTE_T **)(&(pPipe)->pInput))++ = (*((BYTE_T *)pItems))++;
+       *(*(BYTE_T **)(&(pPipe)->pInput))++ = *((*((BYTE_T **)(&pItems)))++);
 
       break;
 
     case WORD_PIPE:
 
       for ( i = 0; i < uiNumberToWrite; i++ )
-       *(*(WORD_T **)(&(pPipe)->pInput))++ = (*((WORD_T *)pItems))++;
+       *(*(WORD_T **)(&(pPipe)->pInput))++ = *((*((WORD_T **)(&pItems)))++);
 
       break;
 
     case DWORD_PIPE:
 
       for ( i = 0; i < uiNumberToWrite; i++ )
-       *(*(DWORD_T **)(&(pPipe)->pInput))++ = (*((DWORD_T *)pItems))++;
+       *(*(DWORD_T **)(&(pPipe)->pInput))++ = *((*((DWORD_T **)(&pItems)))++);
 
       break;
 
     case QWORD_PIPE:
 
       for ( i = 0; i < uiNumberToWrite; i++ )
-       *(*(QWORD_T **)(&(pPipe)->pInput))++ = (*((QWORD_T *)pItems))++;
+       *(*(QWORD_T **)(&(pPipe)->pInput))++ = *((*((QWORD_T **)(&pItems)))++);
 
       break;
 
     case FLOAT_PIPE:
 
       for ( i = 0; i < uiNumberToWrite; i++ )
-       *(*(float **)(&(pPipe)->pInput))++ = (*((float *)pItems))++;
+       *(*(float **)(&(pPipe)->pInput))++ = *((*((float **)(&pItems)))++);
 
       break;
 
     case DOUBLE_PIPE:
 
       for ( i = 0; i < uiNumberToWrite; i++ )
-       *(*(double **)(&(pPipe)->pInput))++ = (*((double *)pItems))++;
+       *(*(double **)(&(pPipe)->pInput))++ = *((*((double **)(&pItems)))++);
 
       break;
 
     case VOID_PTR_PIPE:
 
       for ( i = 0; i < uiNumberToWrite; i++ )
-       *(*(void ***)(&(pPipe)->pInput))++ = (*((void **)pItems))++;
+       *(*(void ***)(&(pPipe)->pInput))++ = *((*((void ***)(&pItems)))++);
 
       break;
 
     default:
 
       for ( i = 0; i < uiNumberToWrite; i++ )
-       *(*(BYTE_T **)(&(pPipe)->pInput))++ = (*((BYTE_T *)pItems))++;
+       *(*(BYTE_T **)(&(pPipe)->pInput))++ = *((*((BYTE_T **)(&pItems)))++);
 
       break;
     }

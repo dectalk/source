@@ -1,6 +1,6 @@
 # Fonix DECtalk
 
-Welcome to DECtalk... or a copy of it, found from a webserver off [grossgang.com](http://grossgang.com/tts/dectalk%20software%20and%20manual/Ad%202.zip)
+Welcome to DECtalk... or a copy of it, found from [_@datajake1999_'s webserver](from a webserver off [grossgang.com](http://grossgang.com/tts/dectalk%20software%20and%20manual/Ad%202.zip))
 
 This repository aims to do something with the code.
 Whatever it is, I don't know.
@@ -21,8 +21,8 @@ autoreconf
 # Something about having to use `-fPIC`
 CC='gcc -fPIC -g -O2' ./configure
 
-# Make (but like it wants to use "/lib" for some reason, so sudo?!)
-sudo make
+# Make
+make
 ```
 
 ## Branches
@@ -48,3 +48,10 @@ If you really want to give thanks, try one of these people:
 
 `/src/samples/speak/TEAM03.BMP`  
 ![The DECtalk Team](.github/TEAM03.png)
+
+## Thanks
+
+Who                 | Why
+------------------- | ------------
+@datajake1999       | Hosting the original source code on their webserver
+
